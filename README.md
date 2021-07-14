@@ -62,3 +62,41 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ## Cara Run Project
+
+Untuk menjalankan project laravel yang ada pada repository ini caranya yaitu :
+
+1. Download atau Clone project ini ke direktori lokal anda
+
+2. Setelah di Download atau Clone, buka cmd lalu arahkan ke direktori project ini lalu ketikkan perintah 
+
+    `composer install`
+
+    Perintah tersebut akan menginstal library-library atau dependencies yang digunakan Laravel.
+
+3. Berikutnya, kita perlu membuat file **.env** berdasarkan dari file **.env.example**, caranya jalankan perintah 
+
+    `copy .env.example .env`
+
+4. Setelah berhasil membuat file .env, berikutnya jalankan perintah
+
+    `php artisan key:generate`
+
+5. Kemudian, jika aplikasi Laravel tersebut memiliki database, buatlah nama database baru. Lalu sesuaikan nama database, username, dan password database di file **.env**.
+
+6. Berikutnya jalankan perintah berikut
+
+    `php artisan migrate`
+
+    Perintah ini akan meng-generate table yang dimiliki database aplikasi
+
+7. Pada aplikasi ini tidak hanya menyediakan file-file migrations tapi juga file-file seeder untuk data table *users* dan *lokasi* yang ada di folder database/seeds sehingga kita perlu memasukkannya ke dalam table dengan perintah
+
+    `php artisan db:seed`
+
+8. Terakhir, untuk membukanya di web browser, jalankan perintah
+
+    `php artisan serve`
+
+    Lalu jalankan http://localhost:8000
+
+### Selamat Mencoba!

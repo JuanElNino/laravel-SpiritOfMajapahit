@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LokasiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('lokasi', [LokasiController::class, 'index']);
+
+Route::get('/lokasi/{id}', [LokasiController::class, 'getId']);
+
+Route::post('/lokasi', [LokasiController::class, 'create']);
+
+Route::put('/lokasi/update/{id}', [LokasiController::class, 'update']);
+
+Route::delete('/lokasi/{id}', [LokasiController::class, 'delete']);
