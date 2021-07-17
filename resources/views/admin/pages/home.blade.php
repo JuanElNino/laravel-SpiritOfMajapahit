@@ -1,5 +1,7 @@
 @extends('admin.layouts.app')
 
+@section('title', 'Admin | Spirit Of Majapahit')
+    
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
