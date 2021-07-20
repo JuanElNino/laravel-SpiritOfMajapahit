@@ -66,6 +66,9 @@
                             </table>
                         </div>
                         <!-- /.card-body -->
+                        <div class="card-footer">
+                            <a href="{{ route('admin.galeri', ['id' => $wisata->id_lokasi]) }}" class="btn btn-info">Kembali</a>
+                        </div>
                     </div>
                     <!-- /.card -->
                 </div>

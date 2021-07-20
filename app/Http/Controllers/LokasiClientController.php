@@ -243,7 +243,7 @@ class LokasiClientController extends Controller
             ->where('id_lokasi', $id)
             ->get();
         foreach($data as $d){
-            Storage::delete('app/public/images/'.$d->nama_galeri);
+            Storage::delete('public/images/'.$d->nama_galeri);
             $data->delete();
         }
         return redirect()->route('admin.hotel')->with('status','Berhasil menghapus lokasi hotel');

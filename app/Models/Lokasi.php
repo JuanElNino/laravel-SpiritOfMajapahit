@@ -25,4 +25,9 @@ class Lokasi extends Model
     {
         return $this->hasMany(Galeri::class, 'id_lokasi');
     }
+
+    public function ulasan()
+    {
+        return $this->hasMany(Ulasan::class, 'lokasi_id');
+    }
 }

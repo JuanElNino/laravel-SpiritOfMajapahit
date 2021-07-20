@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lokasi;
+use App\Models\Promo;
+use App\Models\Ulasan;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.home');
+        $lokasi = Lokasi::all();
+        $ulasan = Ulasan::all();
+        $promo = Promo::all();
+        $user = User::where('role','user')
+                ->get();
+        return view('admin.pages.home', compact('lokasi', 'ulasan', 'promo', 'user'));
     }
 }

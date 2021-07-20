@@ -58,6 +58,7 @@
                             <!-- /.card-body -->
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Tambah</button>
+                                <a href="{{ route('admin.hotel') }}" class="btn btn-info">Kembali</a>
                             </div>
                         </form>
                     </div>

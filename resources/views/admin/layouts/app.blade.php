@@ -128,19 +128,19 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('admin.promo') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tags"></i>
                                 <p>Promo</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('admin.user') }}" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>User</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('admin.ulasan') }}" class="nav-link">
                                 <i class="nav-icon fas fa-comment"></i>
                                 <p>Ulasan</p>
                             </a>

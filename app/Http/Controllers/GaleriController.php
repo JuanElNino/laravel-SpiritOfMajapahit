@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Galeri;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class GaleriController extends Controller
@@ -58,7 +57,6 @@ class GaleriController extends Controller
             // Filename to store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
             // Upload Image
-            //Storage::disk('local')->put('images/', $fileNameToStore);
             $path = $request->file('image')->storeAs('public/images',$fileNameToStore);
         }
         else {
@@ -78,7 +76,6 @@ class GaleriController extends Controller
     {
         $data = Galeri::find($id);
         Galeri::destroy($id);
-        //$id_lokasi = $data->id_lokasi;
         return redirect()->route('admin.galeri.edit',['id'=>$data->id_lokasi])->with('status', 'Berhasil menghapus media');
     }
 }

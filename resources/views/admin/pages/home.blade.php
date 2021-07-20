@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('title', 'Admin | Spirit Of Majapahit')
-    
+
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -22,34 +22,66 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
+            <!-- Info boxes -->
             <div class="row">
-                <div class="col-12">
-                    <!-- Default box -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Title</h3>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-info elevation-1"><i class="fas fa-map-marked-alt"></i></span>
 
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Lokasi Terdaftar</span>
+                            <span class="info-box-number">{{ $lokasi->count() }}</span>
                         </div>
-                        <div class="card-body">
-                            Start creating your amazing application!
-                        </div>
-                        <!-- /.card-body -->
-                        <div class="card-footer">
-                            Footer
-                        </div>
-                        <!-- /.card-footer-->
+                        <!-- /.info-box-content -->
                     </div>
-                    <!-- /.card -->
+                    <!-- /.info-box -->
                 </div>
+                <!-- /.col -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-comments"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Ulasan Baru</span>
+                            <span class="info-box-number">{{ $ulasan->count() }}</span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+
+                <!-- fix for small devices only -->
+                <div class="clearfix hidden-md-up"></div>
+
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-success elevation-1"><i class="fas fa-tags"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Promo Baru</span>
+                            <span class="info-box-number">{{ $promo->count() }}</span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Member Baru</span>
+                            <span class="info-box-number">{{ $user->count() }}</span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
             </div>
+            <!-- /.row -->
         </div>
     </section>
 @endsection
