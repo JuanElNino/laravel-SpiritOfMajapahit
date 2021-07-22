@@ -93,7 +93,11 @@ Untuk menjalankan project laravel yang ada pada repository ini caranya yaitu :
 
     `php artisan db:seed`
 
-8. Terakhir, untuk membukanya di web browser, jalankan perintah
+8. Agar aplikasi dapat menyimpan file ke dalam file lokal maka masukkan perintah di bawah ini
+
+    `php artisan storage:link`
+
+9. Terakhir, untuk membukanya di web browser, jalankan perintah
 
     `php artisan serve`
 
