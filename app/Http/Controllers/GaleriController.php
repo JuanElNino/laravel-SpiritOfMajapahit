@@ -16,11 +16,10 @@ class GaleriController extends Controller
             ->where('galeri.id_lokasi', $id)
             ->get();
         $nama = $galeri->first();
-        $wisata = DB::table('lokasi')
-            ->where('jenis_lokasi', 'Wisata')
+        $lokasi = DB::table('lokasi')
             ->where('id_lokasi', $id)
             ->first();
-        return view('admin.pages.galeri', compact('galeri', 'nama', 'wisata'));
+        return view('admin.pages.galeri', compact('galeri', 'nama', 'lokasi'));
     }
 
     public function edit($id)
@@ -31,11 +30,10 @@ class GaleriController extends Controller
             ->where('galeri.id_lokasi', $id)
             ->get();
         $nama = $galeri->first();
-        $wisata = DB::table('lokasi')
-            ->where('jenis_lokasi', 'Wisata')
+        $lokasi = DB::table('lokasi')
             ->where('id_lokasi', $id)
             ->first();
-        return view('admin.pages.galeri-edit', compact('galeri', 'nama', 'wisata'));
+        return view('admin.pages.galeri-edit', compact('galeri', 'nama', 'lokasi'));
     }
 
     public function store(Request $request)

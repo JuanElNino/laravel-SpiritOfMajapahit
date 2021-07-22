@@ -13,8 +13,8 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a
-                                href="{{ route('admin.galeri', ['id' => $wisata->id_lokasi]) }}">Galeri</a></li>
-                        <li class="breadcrumb-item"><a href="#">{{ $wisata->nama_lokasi }}</a></li>
+                                href="{{ route('admin.galeri', ['id' => $lokasi->id_lokasi]) }}">Galeri</a></li>
+                        <li class="breadcrumb-item"><a href="#">{{ $lokasi->nama_lokasi }}</a></li>
                         <li class="breadcrumb-item active">Edit Galeri</li>
                     </ol>
                 </div>
@@ -67,7 +67,7 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            <a href="{{ route('admin.galeri', ['id' => $wisata->id_lokasi]) }}" class="btn btn-info">Kembali</a>
+                            <a href="{{ route('admin.galeri', ['id' => $lokasi->id_lokasi]) }}" class="btn btn-info">Kembali</a>
                         </div>
                     </div>
                     <!-- /.card -->

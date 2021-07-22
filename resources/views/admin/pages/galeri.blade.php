@@ -16,7 +16,7 @@
                         @if ($galeri->count() < 0)
                             <li class="breadcrumb-item active">{{ $nama->nama_lokasi }}</li>    
                         @else
-                            <li class="breadcrumb-item active">{{ $wisata->nama_lokasi }}</li>
+                            <li class="breadcrumb-item active">{{ $lokasi->nama_lokasi }}</li>
                         @endif
                     </ol>
                 </div>
@@ -46,9 +46,9 @@
                                 @else
                                     <div class="col-sm-2">
                                         <a href="https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101028/112815904-no-image-available-icon-flat-vector-illustration.jpg?ver=6" data-toggle="lightbox"
-                                            data-title="{{$wisata->nama_lokasi}}" data-gallery="gallery">
+                                            data-title="{{$lokasi->nama_lokasi}}" data-gallery="gallery">
                                             <img src="https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101028/112815904-no-image-available-icon-flat-vector-illustration.jpg?ver=6" class="img-fluid mb-2"
-                                                alt="{{$wisata->nama_lokasi}}" />
+                                                alt="{{$lokasi->nama_lokasi}}" />
                                         </a>
                                     </div>
                                 @endif
@@ -70,7 +70,7 @@
                             <div class="form-group">
                                 <label for="image">Tambahkan Gambar</label>
                                 <input type="file" class="form-control" id="image" name="image">
-                                <input type="hidden" name="id_lokasi" value="{{ $wisata->id_lokasi }}">
+                                <input type="hidden" name="id_lokasi" value="{{ $lokasi->id_lokasi }}">
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="tampil" id="tampil" value="yes">

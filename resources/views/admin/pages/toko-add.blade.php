@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.wisata') }}">Toko</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.toko') }}">Toko</a></li>
                         <li class="breadcrumb-item active">Tambah Toko</li>
                     </ol>
                 </div>
@@ -29,7 +29,7 @@
                             <h3 class="card-title">Tambah Lokasi Toko</h3>
                         </div>
                         <!-- /.card-header -->
-                        <form action="{{ route('admin.wisata.store') }}" method="POST">
+                        <form action="{{ route('admin.toko.store') }}" method="POST">
                             @csrf
                             <div class="card-body">
                                 @if (count($errors) > 0)
