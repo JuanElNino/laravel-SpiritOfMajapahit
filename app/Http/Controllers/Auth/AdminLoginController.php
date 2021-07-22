@@ -55,16 +55,12 @@ class AdminLoginController extends Controller
             'password' => 'nullable',
         ]);
 
-        if(Auth::attempt(array('email' => $input['email'], 'password' => $input['password'])))
+        if(Auth::attempt(array('email' => $input['email'], 'password' => $input['password'], 'role' => 'admin')))
         {
             return redirect()->route('admin.home');
-            if (auth()->user()->role == 'admin') {
-                return redirect()->route('admin.home');
-            }else{
-                return redirect()->route('admin.login');
-            }
+            
         }else{
-            return redirect()->route('login')->with('error','Username And Password Are Wrong.');
+            return redirect()->route('admin.login')->with('error','Username And Password Are Wrong.');
         }
     }
 }

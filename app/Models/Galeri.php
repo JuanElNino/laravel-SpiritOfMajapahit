@@ -15,7 +15,8 @@ class Galeri extends Model
 
     protected $fillable = [
         'nama_galeri',
-        'id_lokasi'
+        'id_lokasi',
+        'is_show'
     ];
 
     public function lokasi()

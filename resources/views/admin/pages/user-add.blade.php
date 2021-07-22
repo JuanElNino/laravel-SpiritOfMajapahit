@@ -32,6 +32,15 @@
                         <form action="{{ route('admin.user.store') }}" method="POST">
                             @csrf
                             <div class="card-body">
+                                @if (count($errors) > 0)
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 <div class="form-group">
                                     <label for="nama">Nama Lengkap</label>
                                     <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Lengkap">

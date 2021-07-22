@@ -18,6 +18,7 @@ class CreateGaleriTable extends Migration
             $table->string('nama_galeri', 200);
             $table->unsignedBigInteger('id_lokasi');
             $table->foreign('id_lokasi')->references('id_lokasi')->on('lokasi')->onDelete('cascade')->onUpdate('cascade');
+            $table->enum('is_show', ['yes', 'no'])->default('no');
             $table->timestamps();
         });
     }

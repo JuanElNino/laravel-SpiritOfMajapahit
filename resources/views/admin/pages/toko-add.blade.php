@@ -32,6 +32,15 @@
                         <form action="{{ route('admin.wisata.store') }}" method="POST">
                             @csrf
                             <div class="card-body">
+                                @if (count($errors) > 0)
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 <div class="form-group">
                                     <label for="nama_lokasi">Nama Lokasi Toko</label>
                                     <input type="text" class="form-control" id="nama_lokasi" name="nama_lokasi"

@@ -56,12 +56,25 @@
                         </div>
                     </div>
                     <div class="col-12">
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <form action="{{ route('admin.galeri.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="image">Tambahkan Gambar</label>
                                 <input type="file" class="form-control" id="image" name="image">
                                 <input type="hidden" name="id_lokasi" value="{{ $wisata->id_lokasi }}">
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="tampil" id="tampil" value="yes">
+                                <label for="tampil">Tampilkan Gambar di halaman home</label>
                             </div>
                             <div class="col-4">
                                 @if ($galeri->count() > 0)
@@ -70,8 +83,7 @@
                                     class="btn btn-warning">Edit</a>                                    
                                 @else
                                     <button type="submit" class="btn btn-primary">Tambah</button>
-                                @endif
-                                
+                                @endif   
                             </div>
                         </form>
                     </div>

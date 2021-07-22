@@ -65,9 +65,14 @@
                                                 <td>{{ $u->alamat }}</td>
                                                 <td>
                                                     <div class="btn-group">
-                                                        <a href="{{ route('admin.user.edit', ['id' => $u->id_user]) }}" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>
-                                                        <a href="{{ route('admin.user.delete', ['id' => $u->id_user]) }}" onclick="return confirm('Yakin menghapus data tersebut?')" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
-                                                        <a href="{{ route('admin.user.editpass', ['id' => $u->id_user]) }}" class="btn btn-success"><i class="fas fa-key"></i> Ubah Password</a>
+                                                        <a href="{{ route('admin.user.edit', ['id' => $u->id_user]) }}"
+                                                            class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>
+                                                        <a href="{{ route('admin.user.delete', ['id' => $u->id_user]) }}"
+                                                            onclick="return confirm('Yakin menghapus data tersebut?')"
+                                                            class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                        <a href="{{ route('admin.user.editpass', ['id' => $u->id_user]) }}"
+                                                            class="btn btn-success"><i class="fas fa-key"></i> Ubah
+                                                            Password</a>
                                                     </div>
                                                 </td>
                                             </tr>

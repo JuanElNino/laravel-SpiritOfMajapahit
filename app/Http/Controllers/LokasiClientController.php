@@ -59,6 +59,13 @@ class LokasiClientController extends Controller
 
     public function storeWisata(Request $request)
     {
+        $this->validate($request, [
+            'nama_lokasi' => 'required|string',
+            'desc_lokasi' => 'required',
+            'ket_lokasi' => 'required',
+            'maps_lokasi' => 'required'
+        ]);
+        
         Lokasi::create([
             'nama_lokasi' => $request->nama_lokasi,
             'desc_lokasi' => $request->desc_lokasi,
@@ -72,6 +79,13 @@ class LokasiClientController extends Controller
 
     public function storeToko(Request $request)
     {
+        $this->validate($request, [
+            'nama_lokasi' => 'required|string',
+            'desc_lokasi' => 'required',
+            'ket_lokasi' => 'required',
+            'maps_lokasi' => 'required'
+        ]);
+
         Lokasi::create([
             'nama_lokasi' => $request->nama_lokasi,
             'desc_lokasi' => $request->desc_lokasi,
@@ -85,6 +99,13 @@ class LokasiClientController extends Controller
 
     public function storeTravel(Request $request)
     {
+        $this->validate($request, [
+            'nama_lokasi' => 'required|string',
+            'desc_lokasi' => 'required',
+            'ket_lokasi' => 'required',
+            'maps_lokasi' => 'required'
+        ]);
+
         Lokasi::create([
             'nama_lokasi' => $request->nama_lokasi,
             'desc_lokasi' => $request->desc_lokasi,
@@ -98,6 +119,13 @@ class LokasiClientController extends Controller
 
     public function storeHotel(Request $request)
     {
+        $this->validate($request, [
+            'nama_lokasi' => 'required|string',
+            'desc_lokasi' => 'required',
+            'ket_lokasi' => 'required',
+            'maps_lokasi' => 'required'
+        ]);
+
         Lokasi::create([
             'nama_lokasi' => $request->nama_lokasi,
             'desc_lokasi' => $request->desc_lokasi,

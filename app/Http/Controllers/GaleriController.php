@@ -45,6 +45,7 @@ class GaleriController extends Controller
             'id_lokasi' => 'required'
         ]);
 
+        $tampil = $request->tampil;
         // Handle file Upload
         if($request->hasFile('image')){
 
@@ -63,9 +64,14 @@ class GaleriController extends Controller
             $fileNameToStore = 'template.png';
         }
 
+        if ($tampil == null) {
+            $tampil = 'no';
+        }
+
         Galeri::create([
             'nama_galeri' => $fileNameToStore,
-            'id_lokasi' => $request->id_lokasi
+            'id_lokasi' => $request->id_lokasi,
+            'is_show' => $tampil
         ]);
         
         return redirect()->route('admin.galeri',['id'=>$request->id_lokasi])->with('status', 'Berhasil menambahkan media');

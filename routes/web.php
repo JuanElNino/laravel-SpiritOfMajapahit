@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AdminLoginController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LokasiClientController;
@@ -20,9 +21,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ClientController::class, 'indexWelcome'])->name('welcome');
 
 Auth::routes();
 Route::get('/admin', function () {
@@ -32,6 +31,18 @@ Route::get('/admin', function () {
     return redirect()->route('admin.login');
 });
 
+//User
+Route::get('/home', [ClientController::class, 'indexHome'])->name('home');
+Route::get('/hotel', [ClientController::class, 'indexHotel'])->name('hotel');
+Route::get('/hotel/detail/{id}', [ClientController::class, 'detailHotel'])->name('detail.hotel');
+Route::get('/toko', [ClientController::class, 'indexToko'])->name('toko');
+Route::get('/toko/detail/{id}', [ClientController::class, 'detailToko'])->name('detail.toko');
+Route::get('/travel', [ClientController::class, 'indexTravel'])->name('travel');
+Route::get('/travel/detail/{id}', [ClientController::class, 'detailTravel'])->name('detail.travel');
+Route::get('/wisata', [ClientController::class, 'indexWisata'])->name('wisata');
+Route::get('/wisata/detail/{id}', [ClientController::class, 'detailWisata'])->name('detail.wisata');
+Route::get('/ulasan/{id}', [ClientController::class, 'createUlasan'])->name('ulasan');
+Route::post('/ulasan/store', [ClientController::class, 'storeUlasan'])->name('ulasan.store');
 //Admin Login
 Route::get('/admin/login', [AdminLoginController::class, 'index'])->name('admin.login');
 Route::post('/admin/login', [AdminLoginController::class, 'login']);
