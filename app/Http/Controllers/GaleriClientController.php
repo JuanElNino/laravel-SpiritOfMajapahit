@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Galeri;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GaleriCLientController extends Controller
 {
@@ -53,10 +54,13 @@ class GaleriCLientController extends Controller
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             // Get just ext
             $extension = $request->file('image')->getClientOriginalExtension();
+            // Filename to upload
+            $fileNameToUpload = $filename.'_'.time().'.'.$extension;
             // Filename to store
-            $fileNameToStore = 'storage/images/'.$filename.'_'.time().'.'.$extension;
+            $fileNameToStore = 'storage/images/'.$fileNameToUpload;
             // Upload Image
-            $path = $request->file('image')->storeAs('public/images',$fileNameToStore);
+            //Storage::put('public/images', $fileNameToStore);
+            $path = $request->file('image')->storeAs('public/images/',$fileNameToUpload);
         }
         else {
             $fileNameToStore = 'template.png';
