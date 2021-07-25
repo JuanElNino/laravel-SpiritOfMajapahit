@@ -37,8 +37,8 @@
                             </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0" style="height: 500px;">
-                            <table class="table table-head-fixed text-nowrap">
+                        <div class="card-body table-responsive p-0" style="height: 100%;">
+                            <table class="table table-bordered table-hover text-wrap" id="datatable">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -58,7 +58,7 @@
                                                 <td>{{ $i++ }}</td>
                                                 <td>{{ $p->nama_promo }}</td>
                                                 <td>{{ $p->desc_promo }}</td>
-                                                <td><img src="{{ asset('storage/images/' . $p->img_promo) }}" class="img-fluid mb-2" alt="{{ $p->nama_promo }}" style="width: 150px"></td>
+                                                <td><img src="{{ asset($p->img_promo) }}" class="img-fluid mb-2" alt="{{ $p->nama_promo }}" style="width: 150px"></td>
                                                 <td>
                                                     <div class="btn-group">
                                                         <a href="{{ route('admin.promo.edit', ['id' => $p->id_promo]) }}" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>

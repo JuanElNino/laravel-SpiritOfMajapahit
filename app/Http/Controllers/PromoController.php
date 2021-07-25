@@ -37,7 +37,7 @@ class PromoController extends Controller
             // Get just ext
             $extension = $request->file('image')->getClientOriginalExtension();
             // Filename to store
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            $fileNameToStore = 'storage/images/'.$filename.'_'.time().'.'.$extension;
             // Upload Image
             //Storage::disk('local')->put('images/', $fileNameToStore);
             $path = $request->file('image')->storeAs('public/images',$fileNameToStore);

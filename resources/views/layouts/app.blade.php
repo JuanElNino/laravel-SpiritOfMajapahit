@@ -21,7 +21,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="#">Spirit Of <span>Majapahit</span><span><i class="fa fa-leaf"></i></span></a>
+            <a class="navbar-brand" href="#">Spirit Of <span style="color: #ff8811;">Majapahit</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fa fa-bars"></span> Menu
@@ -59,6 +59,11 @@
                             Oleh - oleh
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('promo') }}" class="nav-link">
+                            Promo
+                        </a>
+                    </li>
                     @guest
                         <li class="nav-item">
                             <a href="{{ route('login') }}" class="nav-link">
@@ -94,28 +99,32 @@
         @yield('content')
     </div>
 
-    <footer class="footer">
+    <footer class="footer" style="background: #ff8811;">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-lg-5">
-                    <div class="row">
+                    <div class="row" >
                         <div class="col-md-12 col-lg-8 mb-md-0 mb-4">
-                            <h2 class="footer-heading"><a href="#" class="logo">Spirit Of<span> Majapahit</span></a>
+                            <h2 class="footer-heading"><a href="#" class="logo">Spirit Of Majapahit</a>
                             </h2>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary
-                                regelialia.</p>
+                            <p style="color: #ffffff;">Dinas Komunikasi dan Informatika <br> Kota Mojokerto</p>
+                            <p style="color: #ffffff;"><b>JAM BUKA KANTOR :</b> 
+                                <br>Senin - Kamis 07.30 - 15.30 WIB
+                                <br>Jum'at 07.00 - 15.00
+                                <br>Sabtu - Minggu dan Hari Besar Libur
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-8 col-lg-7">
                     <div class="row">
-                        <div class="col-md-3 mb-md-0 mb-4 border-left">
+                        <div class="col-md-8 mb-md-0 mb-4 border-left">
                             <h2 class="footer-heading">Contact Us</h2>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="py-1 d-block">Facebook</a></li>
-                                <li><a href="#" class="py-1 d-block">Twitter</a></li>
-                                <li><a href="#" class="py-1 d-block">Instagram</a></li>
-                                <li><a href="#" class="py-1 d-block">Google</a></li>
+                            <ul class="list-unstyled" >
+                                <li><a href="https://goo.gl/maps/kLEqoKvoJbFeDLHu5" target="_blank" class="py-1 d-block" style="color: #ffffff;"><i class="fa fa-map-marker"></i> Jl. Gajah Mada No.149, Mergelo, Balongsari, <br> Kec. Magersari, Kota Mojokerto, Jawa Timur 61314</a></li>
+                                <li><a href="tel:+623215282255" class="py-1 d-block" style="color: #ffffff;"><i class="fa fa-phone"></i> (0321) 528-2255</a></li>
+                                <li><a href="mailto:diskominfo@mojokertokota.go.id" class="py-1 d-block" style="color: #ffffff;"><i class="fa fa-envelope"></i> diskominfo@mojokertokota.go.id</a></li>
+                                <li><a href="https://diskominfo.mojokertokota.go.id" target="_blank" class="py-1 d-block" style="color: #ffffff;"><i class="fa fa-globe"></i> diskominfo.mojokertokota.go.id</a></li>
                             </ul>
                         </div>
                     </div>
@@ -124,7 +133,7 @@
             <div class="row mt-5">
                 <div class="col-md-6 col-lg-8">
 
-                    <p class="copyright">
+                    <p class="copyright" style="color: #ffffff;">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         <script>
                             document.write(new Date().getFullYear());

@@ -8,78 +8,102 @@ use Illuminate\Http\Request;
 
 class GaleriController extends Controller
 {
-    public function index($id)
+    public function index()
     {
-        $galeri = DB::table('galeri')
-            ->join('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
-            ->select('galeri.*', 'lokasi.nama_lokasi')
-            ->where('galeri.id_lokasi', $id)
-            ->get();
-        $nama = $galeri->first();
-        $lokasi = DB::table('lokasi')
-            ->where('id_lokasi', $id)
-            ->first();
-        return view('admin.pages.galeri', compact('galeri', 'nama', 'lokasi'));
+    	$data = Galeri::all();
+
+    	if (count($data) > 0) {
+    		$res['message'] = "Success!";
+    		$res['values'] = $data;
+    		return response($res);
+    	}
+    	else{
+    		$res['message'] = "Kosong!";
+    		return response($res);
+    	}
     }
 
-    public function edit($id)
+    public function getId($id)
     {
-        $galeri = DB::table('galeri')
-            ->join('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
-            ->select('galeri.*', 'lokasi.nama_lokasi')
-            ->where('galeri.id_lokasi', $id)
-            ->get();
-        $nama = $galeri->first();
-        $lokasi = DB::table('lokasi')
-            ->where('id_lokasi', $id)
-            ->first();
-        return view('admin.pages.galeri-edit', compact('galeri', 'nama', 'lokasi'));
+    	$data = Galeri::where('id_galeri',$id)->get();
+
+    	if (count($data) > 0) {
+    		$res['message'] = "Success!";
+    		$res['values'] = $data;
+    		return response($res);
+    	}
+    	else{
+    		$res['message'] = "Kosong!";
+    		return response($res);
+    	}
     }
 
-    public function store(Request $request)
+    public function getLokasi($id)
     {
-        $this->validate($request, [
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            'id_lokasi' => 'required'
-        ]);
+        $data = Galeri::where('id_lokasi',$id)->get();
 
-        $tampil = $request->tampil;
-        // Handle file Upload
-        if($request->hasFile('image')){
-
-            // Get filename with the extension
-            $filenameWithExt = $request->file('image')->getClientOriginalName();
-            //Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just ext
-            $extension = $request->file('image')->getClientOriginalExtension();
-            // Filename to store
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
-            // Upload Image
-            $path = $request->file('image')->storeAs('public/images',$fileNameToStore);
-        }
-        else {
-            $fileNameToStore = 'template.png';
-        }
-
-        if ($tampil == null) {
-            $tampil = 'no';
-        }
-
-        Galeri::create([
-            'nama_galeri' => $fileNameToStore,
-            'id_lokasi' => $request->id_lokasi,
-            'is_show' => $tampil
-        ]);
-        
-        return redirect()->route('admin.galeri',['id'=>$request->id_lokasi])->with('status', 'Berhasil menambahkan media');
-        
+    	if (count($data) > 0) {
+    		$res['message'] = "Success!";
+    		$res['values'] = $data;
+    		return response($res);
+    	}
+    	else{
+    		$res['message'] = "Kosong!";
+    		return response($res);
+    	}
     }
 
-    public function destroy($id)
+    public function create(Request $request)
     {
-        $data = Galeri::find($id);
-        Galeri::destroy($id);
-        return redirect()->route('admin.galeri.edit',['id'=>$data->id_lokasi])->with('status', 'Berhasil menghapus media');
+        $galeri = new Galeri();
+        $galeri->nama_galeri = $request->nama_galeri;
+        $galeri->id_lokasi = $request->id_lokasi;
+        $galeri->is_show = $request->is_show;
+
+        if($galeri->save()){
+    		$res['message'] = "Data berhasil ditambah!";
+    		$res['values'] = $galeri;
+    		return response($res);
+    	}
+    	else{
+    		$res['message'] = "Gagal!";
+    		return response($res);
+    	}
+    }
+
+    public function update(Request $request, $id)
+    {
+        $nama_galeri = $request->nama_galeri;
+        $id_lokasi = $request->id_lokasi;
+        $is_show = $request->is_show;
+
+        $galeri = Galeri::find($id);
+        $galeri->nama_lokasi = $nama_galeri;
+        $galeri->desc_lokasi = $id_lokasi;
+        $galeri->ket_lokasi = $is_show;
+
+        if($galeri->save()){
+    		$res['message'] = "Data berhasil diubah!";
+    		$res['values'] = $galeri;
+    		return response($res);
+    	}
+    	else{
+    		$res['message'] = "Gagal!";
+    		return response($res);
+    	}
+    }
+
+    public function delete($id)
+    {
+    	$data = Galeri::where('id',$id);
+
+    	if($data->delete()){
+    		$res['message'] = "Data berhasil dihapus!";
+    		return response($res);
+    	}
+    	else{
+    		$res['message'] = "Gagal!";
+    		return response($res);
+    	}
     }
 }

@@ -9,17 +9,33 @@ class LokasiController extends Controller
 {
     public function index()
     {
-    	$data = Lokasi::all();
+    	
+		if (request()->jenis_lokasi) {
+			$data = Lokasi::where('jenis_lokasi', request()->jenis_lokasi)->get();
 
-    	if (count($data) > 0) {
-    		$res['message'] = "Success!";
-    		$res['values'] = $data;
-    		return response($res);
-    	}
-    	else{
-    		$res['message'] = "Kosong!";
-    		return response($res);
-    	}
+			if (count($data) > 0) {
+				$res['message'] = "Success!";
+				$res['values'] = $data;
+				return response($res);
+			}
+			else{
+				$res['message'] = "Kosong!";
+				return response($res);
+			}
+
+		} else {
+			$data = Lokasi::all();
+
+			if (count($data) > 0) {
+				$res['message'] = "Success!";
+				$res['values'] = $data;
+				return response($res);
+			}
+			else{
+				$res['message'] = "Kosong!";
+				return response($res);
+			}
+		}    	
     }
 
     public function getId($id)

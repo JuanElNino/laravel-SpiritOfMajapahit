@@ -18,7 +18,7 @@ class CreateLokasiTable extends Migration
             $table->string('nama_lokasi', 100);
             $table->text('desc_lokasi');
             $table->string('ket_lokasi', 100);
-            $table->string('maps_lokasi', 100);
+            $table->string('maps_lokasi', 1000);
             $table->string('jenis_lokasi', 10);
             $table->timestamps();
         });

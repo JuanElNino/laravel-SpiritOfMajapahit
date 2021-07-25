@@ -5,107 +5,47 @@
 @section('content')
     <div class="hero-wrap js-fullheight">
         <div class="home-slider owl-carousel js-fullheight">
-            @if ($promo->count() > 0)
-                <div class="slider-item js-fullheight"
-                    style="background-image:url(https://i.pinimg.com/originals/61/7b/44/617b44ad3aecea710638469e9a0dde5d.jpg);">
-                    <div class="overlay"></div>
-                    <div class="container">
-                        <div class="row no-gutters slider-text align-items-center">
-                            <div class="col-md-6 ftco-animate">
-                                <div class="text w-100">
-                                    <h2>Spirit Of Majapahit</h2>
-                                    <h1 class="mb-4"><strong>Kunjungi kami sekarang juga</strong></h1>
-                                </div>
+            <div class="slider-item js-fullheight"
+                style="background-image:url(https://i.pinimg.com/originals/61/7b/44/617b44ad3aecea710638469e9a0dde5d.jpg);">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row no-gutters slider-text align-items-center">
+                        <div class="col-md-6 ftco-animate">
+                            <div class="text w-100">
+                                <h2 style="color: #ff8811;">Spirit Of Majapahit</h2>
+                                <h1 class="mb-4"><strong>Kunjungi kami sekarang juga</strong></h1>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="slider-item js-fullheight"
-                    style="background-image:url(https://cdnfiles.hdrcreme.com/70973/large/20191105_072018-01.jpg?1573494653);">
-                    <div class="overlay"></div>
-                    <div class="container">
-                        <div class="row no-gutters slider-text align-items-center justify-content-center">
-                            <div class="col-md-8 ftco-animate">
-                                <div class="text w-100">
-                                    <h1 class="mb-4 color-white"><strong>Dan temukan keindahan kami</strong></h1>
-                                </div>
+            </div>
+            <div class="slider-item js-fullheight"
+                style="background-image:url(https://cdnfiles.hdrcreme.com/70973/large/20191105_072018-01.jpg?1573494653);">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row no-gutters slider-text align-items-center justify-content-center">
+                        <div class="col-md-8 ftco-animate">
+                            <div class="text w-100">
+                                <h1 class="mb-4 color-white"><strong>Dan temukan keindahan kami</strong></h1>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="slider-item js-fullheight"
-                    style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Sunrise_Mall_Mojokerto.jpg/1200px-Sunrise_Mall_Mojokerto.jpg);">
-                    <div class="overlay"></div>
-                    <div class="container">
-                        <div class="row no-gutters slider-text align-items-center justify-content-center">
-                            <div class="col-md-8 ftco-animate">
-                                <div class="text w-100">
-                                    <h1 class="mb-4 color-white"><strong>Kota Mojokerto</strong></h1>
-                                    <h2>Prestigious City</h2>
-                                </div>
+            </div>
+            <div class="slider-item js-fullheight"
+                style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Sunrise_Mall_Mojokerto.jpg/1200px-Sunrise_Mall_Mojokerto.jpg);">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row no-gutters slider-text align-items-center justify-content-center">
+                        <div class="col-md-8 ftco-animate">
+                            <div class="text w-100">
+                                <h1 class="mb-4 color-white"><strong>Kota Mojokerto</strong></h1>
+                                <h2 style="color: #ff8811;">Prestigious City</h2>
                             </div>
                         </div>
                     </div>
                 </div>
-                @foreach ($promo as $p)
-                    <div class="slider-item js-fullheight"
-                        style="background-image:url({{ asset('storage/images/' . $p->img_promo) }});">
-                        <div class="overlay"></div>
-                        <div class="container">
-                            <div class="row no-gutters slider-text align-items-center justify-content-center">
-                                <div class="col-md-8 ftco-animate">
-                                    <div class="text w-100">
-                                        <h1 class="mb-4 color-white"><strong>{{ $p->nama_promo }}</strong></h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            @else
-                <div class="slider-item js-fullheight"
-                    style="background-image:url(https://i.pinimg.com/originals/61/7b/44/617b44ad3aecea710638469e9a0dde5d.jpg);">
-                    <div class="overlay"></div>
-                    <div class="container">
-                        <div class="row no-gutters slider-text align-items-center">
-                            <div class="col-md-6 ftco-animate">
-                                <div class="text w-100">
-                                    <h2>Spirit Of Majapahit</h2>
-                                    <h1 class="mb-4"><strong>Kunjungi kami sekarang juga</strong></h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slider-item js-fullheight"
-                    style="background-image:url(https://cdnfiles.hdrcreme.com/70973/large/20191105_072018-01.jpg?1573494653);">
-                    <div class="overlay"></div>
-                    <div class="container">
-                        <div class="row no-gutters slider-text align-items-center justify-content-center">
-                            <div class="col-md-8 ftco-animate">
-                                <div class="text w-100">
-                                    <h1 class="mb-4 color-white"><strong>Dan temukan keindahan kami</strong></h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slider-item js-fullheight"
-                    style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Sunrise_Mall_Mojokerto.jpg/1200px-Sunrise_Mall_Mojokerto.jpg);">
-                    <div class="overlay"></div>
-                    <div class="container">
-                        <div class="row no-gutters slider-text align-items-center justify-content-center">
-                            <div class="col-md-8 ftco-animate">
-                                <div class="text w-100">
-                                    <h1 class="mb-4 color-white"><strong>Kota Mojokerto</strong></h1>
-                                    <h2>Prestigious City</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endif
-
+            </div>
         </div>
     </div>
 
@@ -114,7 +54,7 @@
             <div class="row justify-content-center pb-5 mb-3">
                 <div class="col-md-7 heading-section text-center ftco-animate">
                     <h1><strong>Ingat Pesan Ibu : 3M!</strong></h1>
-                    <span class="subheading">Selama berwisata saat pandemi Covid-19</span>
+                    <span class="subheading" style="color: #ff8811;">Selama berwisata saat pandemi Covid-19</span>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
@@ -127,8 +67,7 @@
                         <div class="text mt-3">
                             <div class="meta mb-2 text-center">
                                 <div>
-                                    <h3><a href="#"><b>Memakai Masker</b></a>
-                                        <h3>
+                                    <h3><a href="#" style="color: #ff8811;"><b>Memakai Masker</b></a><h3>
                                 </div>
                             </div>
                         </div>
@@ -143,8 +82,7 @@
                         <div class="text mt-3">
                             <div class="meta mb-2 text-center">
                                 <div>
-                                    <h3><a href="#"><b>Mencuci Tangan</b></a>
-                                        <h3>
+                                    <h3><a href="#" style="color: #ff8811;"><b>Mencuci Tangan</b></a><h3>
                                 </div>
                             </div>
                         </div>
@@ -159,8 +97,7 @@
                         <div class="text mt-3">
                             <div class="meta mb-2 text-center">
                                 <div>
-                                    <h3><a href="#"><b>Menjaga Jarak</b></a>
-                                        <h3>
+                                    <h3><a href="#" style="color: #ff8811;"><b>Menjaga Jarak</b></a><h3>
                                 </div>
                             </div>
                         </div>
@@ -175,7 +112,7 @@
             <div class="row justify-content-center pb-5 mb-3">
                 <div class="col-md-7 heading-section text-center ftco-animate">
                     <h1><strong>Prestigious City</strong></h1>
-                    <span class="subheading">Rekomendasi lokasi yang dapat anda kunjungi</span>
+                    <span class="subheading" style="color: #ff8811;">Rekomendasi lokasi yang dapat anda kunjungi</span>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
@@ -184,13 +121,14 @@
                         <div class="col-md-4 ftco-animate">
                             <div class="blog-entry align-self-stretch">
                                 <div class="img text-center">
-                                    <img src="{{ asset('storage/images/' . $g->nama_galeri) }}" style="border-radius:5%;"
+                                    <img src="{{ asset($g->nama_galeri) }}" style="border-radius:5%;"
                                         alt="/" height="200" width="300">
                                 </div>
                                 <div class="text mt-3">
                                     <h3 class="heading text-center"><a href="#">{{ $g->nama_lokasi }}</a></h3>
                                 </div>
-                                <p class="text-center"><a href="{{ route('detail.wisata', ['id' => $g->id_lokasi]) }}" class="btn btn-primary">Lihat Selengkapnya</a>
+                                <p class="text-center"><a href="{{ route('detail.wisata', ['id' => $g->id_lokasi]) }}"
+                                        class="btn btn-primary">Lihat Selengkapnya</a>
                             </div>
                         </div>
                     @endforeach

@@ -32,12 +32,13 @@
                             <h3 class="card-title">Edit Galeri</h3>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0" style="height: 500px;">
-                            <table class="table table-head-fixed text-nowrap">
+                        <div class="card-body table-responsive p-0" style="height: 100%;">
+                            <table class="table table-bordered table-hover text-nowrap" id="datatable">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Gambar</th>
+                                        <th>Thumbnail</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -50,6 +51,13 @@
                                             <tr>
                                                 <td>{{ $i++ }}</td>
                                                 <td><img src="{{ asset('storage/images/' . $g->nama_galeri) }}" class="img-fluid mb-2" alt="{{ $g->nama_lokasi }}" style="width: 150px"></td>
+                                                @if ($g->is_show == 'yes')
+                                                    <td>Ya</td>
+                                                @elseif($g->is_show == 'no')
+                                                    <td>Tidak</td>
+                                                @else
+                                                    <td>Belum ada thumbnail</td>
+                                                @endif
                                                 <td>
                                                     <div class="col-4">
                                                         <a href="{{ route('admin.galeri.delete', ['id' => $g->id_galeri]) }}" onclick="return confirm('Yakin menghapus data tersebut?')" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
@@ -58,6 +66,7 @@
                                             </tr>
                                         @endforeach
                                     @else
+                                        <td></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>

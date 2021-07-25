@@ -34,6 +34,14 @@
                             <div class="card-body">
                                 <div class="col-sm-6">
                                     <div class="form-group">
+                                        <label for="ulasan">Ulasan</label>
+                                        <textarea name="ulasan" id="ulasan" class="form-control" rows="3" disabled>{{ $ulasan->ulasan }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kritik">Kritik</label>
+                                        <textarea name="kritik" id="kritik" class="form-control" rows="3" disabled>{{ $ulasan->kritik }}</textarea>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="verifikasi">Verifikasi Ulasan</label>
                                         <select class="form-control" id="verifikasi" name="verifikasi">
                                             <option>Pilih Opsi...</option>

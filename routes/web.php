@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\ClientController;
-use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\GaleriClientController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LokasiClientController;
 use App\Http\Controllers\PromoController;
@@ -41,6 +41,8 @@ Route::get('/travel', [ClientController::class, 'indexTravel'])->name('travel');
 Route::get('/travel/detail/{id}', [ClientController::class, 'detailTravel'])->name('detail.travel');
 Route::get('/wisata', [ClientController::class, 'indexWisata'])->name('wisata');
 Route::get('/wisata/detail/{id}', [ClientController::class, 'detailWisata'])->name('detail.wisata');
+Route::get('/promo', [ClientController::class, 'indexPromo'])->name('promo');
+Route::get('/promo/detail/{id}', [ClientController::class, 'detailPromo'])->name('detail.promo');
 Route::get('/ulasan/{id}', [ClientController::class, 'createUlasan'])->name('ulasan');
 Route::post('/ulasan/store', [ClientController::class, 'storeUlasan'])->name('ulasan.store');
 //Admin Login
@@ -83,10 +85,10 @@ Route::post('/admin/hotel/update/{id}', [LokasiClientController::class, 'updateH
 Route::get('/admin/hotel/delete/{id}', [LokasiClientController::class, 'destroyHotel'])->name('admin.hotel.delete');
 
 //Admin Galeri
-Route::get('/admin/galeri/{id}', [GaleriController::class, 'index'])->name('admin.galeri');
-Route::get('/admin/galeri/edit/{id}', [GaleriController::class, 'edit'])->name('admin.galeri.edit');
-Route::post('/admin/galeri/store', [GaleriController::class, 'store'])->name('admin.galeri.store');
-Route::get('/admin/galeri/edit/delete/{id}', [GaleriController::class, 'destroy'])->name('admin.galeri.delete');
+Route::get('/admin/galeri/{id}', [GaleriClientController::class, 'index'])->name('admin.galeri');
+Route::get('/admin/galeri/edit/{id}', [GaleriClientController::class, 'edit'])->name('admin.galeri.edit');
+Route::post('/admin/galeri/store', [GaleriClientController::class, 'store'])->name('admin.galeri.store');
+Route::get('/admin/galeri/edit/delete/{id}', [GaleriClientController::class, 'destroy'])->name('admin.galeri.delete');
 
 //Admin Promo
 Route::get('/admin/promo', [PromoController::class, 'index'])->name('admin.promo');

@@ -14,24 +14,22 @@ class ClientController extends Controller
 {
     public function indexWelcome()
     {
-        $promo = Promo::all();
         $galeri = DB::table('galeri')
             ->join('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
             ->select('galeri.*', 'lokasi.nama_lokasi')
             ->where('galeri.is_show', 'yes')
             ->get();
-        return view('welcome', compact('galeri', 'promo'));
+        return view('welcome', compact('galeri'));
     }
 
     public function indexHome()
     {
-        $promo = Promo::all();
         $galeri = DB::table('galeri')
             ->join('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
             ->select('galeri.*', 'lokasi.nama_lokasi')
             ->where('galeri.is_show', 'yes')
             ->get();
-        return view('user.home', compact('galeri', 'promo'));
+        return view('user.home', compact('galeri'));
     }
 
     public function indexWisata()
@@ -53,7 +51,7 @@ class ClientController extends Controller
             ->where('galeri.is_show', 'yes')
             ->where('lokasi.jenis_lokasi', 'hotel')
             ->get();
-        return view('user.wisata', compact('galeri'));
+        return view('user.hotel', compact('galeri'));
     }
 
     public function indexTravel()
@@ -64,7 +62,7 @@ class ClientController extends Controller
             ->where('galeri.is_show', 'yes')
             ->where('lokasi.jenis_lokasi', 'travel')
             ->get();
-        return view('user.wisata', compact('galeri'));
+        return view('user.travel', compact('galeri'));
     }
 
     public function indexToko()
@@ -75,7 +73,16 @@ class ClientController extends Controller
             ->where('galeri.is_show', 'yes')
             ->where('lokasi.jenis_lokasi', 'toko')
             ->get();
-        return view('user.wisata', compact('galeri'));
+        return view('user.toko', compact('galeri'));
+    }
+
+    public function indexPromo()
+    {
+        $banner = Promo::orderBy('created_at', 'desc')
+                    ->take(5)
+                    ->get();
+        $promo = Promo::all();
+        return view('user.promo', compact('banner', 'promo'));
     }
 
     public function detailWisata($id)
@@ -160,6 +167,12 @@ class ClientController extends Controller
                     ->where('verifikasi', 'done')
                     ->get();
         return view('user.toko-detail', compact('galeri', 'tampil', 'toko', 'ulasan'));
+    }
+
+    public function detailPromo($id)
+    {
+        $promo = Promo::find($id);
+        return view('user.promo-detail', compact('promo'));
     }
 
     public function createUlasan($id)

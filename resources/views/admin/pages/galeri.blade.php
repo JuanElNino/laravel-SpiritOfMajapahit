@@ -38,8 +38,8 @@
                                 @if ($galeri->count() > 0)
                                     @foreach ($galeri as $g)
                                         <div class="col-sm-2">
-                                            <a href="{{ asset('storage/images/' . $g->nama_galeri) }}" data-toggle="lightbox" data-title="{{ $g->nama_lokasi }}" data-gallery="gallery">
-                                                <img src="{{ asset('storage/images/' . $g->nama_galeri) }}" class="img-fluid mb-2" alt="{{ $g->nama_lokasi }}" />
+                                            <a href="{{ asset( $g->nama_galeri) }}" data-toggle="lightbox" data-title="{{ $g->nama_lokasi }}" data-gallery="gallery">
+                                                <img src="{{ asset( $g->nama_galeri) }}" class="img-fluid mb-2" alt="{{ $g->nama_lokasi }}" />
                                             </a>
                                         </div>
                                     @endforeach
@@ -74,7 +74,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="tampil" id="tampil" value="yes">
-                                <label for="tampil">Tampilkan Gambar di halaman home</label>
+                                <label for="tampil">Jadikan sebagai thumbnail? (max 1 thumbnail per lokasi)</label>
                             </div>
                             <div class="col-4">
                                 @if ($galeri->count() > 0)

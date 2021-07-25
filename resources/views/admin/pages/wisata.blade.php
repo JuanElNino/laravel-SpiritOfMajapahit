@@ -37,8 +37,8 @@
                             </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0" style="height: 500px;">
-                            <table class="table table-head-fixed text-nowrap">
+                        <div class="card-body" style="height: 100%;">
+                            <table id="datatable" class="table table-bordered table-hover text-wrap">
                                 <thead>
                                     <tr>
                                         <th>No</th>

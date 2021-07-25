@@ -11,11 +11,11 @@
                 <div id="carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                          <img src="{{ asset('storage/images/' . $tampil->nama_galeri) }}" class="d-block w-100" alt="First Slide">
+                          <img src="{{ asset($tampil->nama_galeri) }}" class="d-block w-100" alt="First Slide">
                         </div>
                         @foreach ($galeri as $g)
                             <div class="carousel-item">
-                                <img src="{{ asset('storage/images/' . $g->nama_galeri) }}" class="d-block w-100" alt="First Slide">
+                                <img src="{{ asset($g->nama_galeri) }}" class="d-block w-100" alt="First Slide">
                             </div>
                         @endforeach
                     </div>
@@ -32,6 +32,21 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
+                <div class="heading-section">
+                    <div class="pl-md-5">
+                        <span class="subheading mb-2" style="color: #ff8811;">
+                            <br>
+                            @php
+                                $average = $ulasan->avg('rating');
+                            @endphp
+                            Rating Lokasi :
+                            @for ($i = 0; $i < $average; $i++)
+                                <i class="fa fa-star"></i>
+                            @endfor
+                            ({{ $average }}/5)
+                        </span>
+                    </div>
+                </div>
             </div>
                 <div class="col-md-6 wrap-about py-4 py-md-5 ftco-animate">
                     <div class="heading-section">
@@ -44,30 +59,13 @@
                     </div>
                     <div class="heading-section">
                         <div class="pl-md-5">
-                            <p style="text-align: justify">{{ $hotel->desc_lokasi }}</p>
-                            <p><a href="{{ $hotel->maps_lokasi }}" class="btn btn-primary btn-block" target="_blank">Link
-                                    GMaps</a></p>
+                            <p style="text-align: justify">{!! $hotel->desc_lokasi !!}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row no-gutters">
-                <div class="col-md-6 wrap-about py-4 py-md-5 ftco-animate">
-                    <div class="heading-section">
-                        <div class="pl-md-5">
-                            <span class="subheading mb-2">
-                                @php
-                                    $average = $ulasan->avg('rating');
-                                @endphp
-                                Rating Lokasi :
-                                @for ($i = 0; $i < $average; $i++)
-                                    <i class="fa fa-star"></i>
-                                @endfor
-                                ({{ $average }}/5)
-                            </span>
-                        </div>
-                    </div>
-                </div>
+            <div class="row no-gutters align-items-center justify-content-center">
+                {!! $hotel->maps_lokasi !!}       
             </div>
         </div>
     </section>
@@ -102,7 +100,7 @@
                                             <p style="text-align: justify">{{ $u->kritik }}</p>
                                         @endif
                                         <p class="name">{{ $u->nama }}</p>
-                                        <span class="position">
+                                        <span class="position" style="color: #ff8811;">
                                             Rating Lokasi :
                                             @for ($i = 0; $i < $u->rating; $i++)
                                                 <i class="fa fa-star"></i>

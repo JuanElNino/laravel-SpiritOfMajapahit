@@ -37,7 +37,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-3">
-                                <input class="btn btn-success btn-block" type="submit" value="Tambah Ulasan">
+                                <input class="btn btn-warning btn-block" type="submit" value="Tambah Ulasan">
                             </div>
                             <div class="col-md-3">
                                 <a href="{{ route('detail.wisata', ['id' => $lokasi->id_lokasi]) }}" class="btn btn-info btn-block">Kembali</a>
