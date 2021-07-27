@@ -198,10 +198,12 @@
                     <h5 class="modal-title"><b>Selamat datang di Spirit Of Majapahit</b></h5>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>                    
                 </div>
-                <div class="modal-body">
-                    <h4>Promo hari ini</h4>
-                    <p>{{ $promo->nama_promo }}</p>
-                </div>
+                @if (!$promo == null)
+                    <div class="modal-body">
+                        <h4>Promo hari ini</h4>
+                        <p>{{ $promo->nama_promo }}</p>                    
+                    </div>
+                @endif
                 <div class="modal-footer">
                     <button type="button" class="btn btn-warning" data-dismiss="modal">Tutup</button>
                 </div>
