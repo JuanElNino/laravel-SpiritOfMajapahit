@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Galeri;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class GaleriCLientController extends Controller
 {
@@ -40,38 +39,17 @@ class GaleriCLientController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'image' => 'required',
             'id_lokasi' => 'required'
         ]);
 
         $tampil = $request->tampil;
-        // Handle file Upload
-        if($request->hasFile('image')){
-
-            // Get filename with the extension
-            $filenameWithExt = $request->file('image')->getClientOriginalName();
-            //Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just ext
-            $extension = $request->file('image')->getClientOriginalExtension();
-            // Filename to upload
-            $fileNameToUpload = $filename.'_'.time().'.'.$extension;
-            // Filename to store
-            $fileNameToStore = 'storage/images/'.$fileNameToUpload;
-            // Upload Image
-            //Storage::put('public/images', $fileNameToStore);
-            $path = $request->file('image')->storeAs('public/images/',$fileNameToUpload);
-        }
-        else {
-            $fileNameToStore = 'template.png';
-        }
-
         if ($tampil == null) {
             $tampil = 'no';
         }
 
         Galeri::create([
-            'nama_galeri' => $fileNameToStore,
+            'nama_galeri' => $request->image,
             'id_lokasi' => $request->id_lokasi,
             'is_show' => $tampil
         ]);

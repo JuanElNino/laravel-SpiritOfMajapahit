@@ -14,19 +14,35 @@
             <div class="row d-flex justify-content-center">
                 @if ($galeri->count() > 0)
                     @foreach ($galeri as $g)
-                        <div class="col-md-4 ftco-animate">
-                            <div class="blog-entry align-self-stretch">
-                                <div class="img text-center">
-                                    <img src="{{ asset($g->nama_galeri) }}" style="border-radius:5%;"
-                                        alt="/" height="200" width="300">
+                        @if ($g->is_show == 'yes')
+                            <div class="col-md-4 ftco-animate">
+                                <div class="blog-entry align-self-stretch">
+                                    <div class="img text-center">
+                                        <img src="{{ $g->nama_galeri }}" style="border-radius:5%;" alt="/" height="200"
+                                            width="300">
+                                    </div>
+                                    <div class="text mt-3">
+                                        <h3 class="heading text-center"><a href="#">{{ $g->nama_lokasi }}</a></h3>
+                                    </div>
+                                    <p class="text-center"><a href="{{ route('detail.hotel', ['id' => $g->id_lokasi]) }}"
+                                            class="btn btn-primary">Lihat Selengkapnya</a>
                                 </div>
-                                <div class="text mt-3">
-                                    <h3 class="heading text-center"><a href="#">{{ $g->nama_lokasi }}</a></h3>
-                                </div>
-                                <p class="text-center"><a href="{{ route('detail.hotel', ['id' => $g->id_lokasi]) }}"
-                                        class="btn btn-primary">Lihat Selengkapnya</a>
                             </div>
-                        </div>
+                        @elseif($g->is_show == null)
+                            <div class="col-md-4 ftco-animate">
+                                <div class="blog-entry align-self-stretch">
+                                    <div class="img text-center">
+                                        <img src="https://hesolutions.com.pk/wp-content/uploads/2019/01/picture-not-available.jpg"
+                                            style="border-radius:5%;" alt="/" height="200" width="300">
+                                    </div>
+                                    <div class="text mt-3">
+                                        <h3 class="heading text-center"><a href="#">{{ $g->nama_lokasi }}</a></h3>
+                                    </div>
+                                    <p class="text-center"><a href="{{ route('detail.hotel', ['id' => $g->id_lokasi]) }}"
+                                            class="btn btn-primary">Lihat Selengkapnya</a>
+                                </div>
+                            </div>
+                        @endif
                     @endforeach
                 @else
                     <div class="text mt-3">

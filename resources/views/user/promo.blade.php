@@ -8,7 +8,7 @@
             <div class="home-slider owl-carousel js-fullheight">
                 @foreach ($banner as $b)
                     <div class="slider-item js-fullheight"
-                        style="background-image:url('{{ asset($b->img_promo) }}');">
+                        style="background-image:url('{{ $b->img_promo }}');">
                         <div class="overlay"></div>
                         <div class="container">
                             <div class="row no-gutters slider-text align-items-center">
@@ -39,7 +39,7 @@
                         @foreach ($promo as $p)
                             <div class="blog-entry align-self-stretch">
                                 <a href="{{ route('detail.promo', ['id' => $p->id_promo]) }}">
-                                    <img src="{{ asset($p->img_promo) }}" alt="{{ asset('storage/images/' . $p->nama_promo) }}" class="block-20 rounded img-2">
+                                    <img src="{{ $p->img_promo }}" alt="{{ $p->nama_promo }}" class="block-20 rounded img-2">
                                 </a>
                                 <div class="text mt-3">
                                     <h2 class="heading">

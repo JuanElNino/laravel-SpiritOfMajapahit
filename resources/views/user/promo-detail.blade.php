@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-lg-8 ftco-animate">
                     <p>
-                        <img src="{{ asset($promo->img_promo) }}" alt="{{ $promo->nama_promo }}" class="img-fluid">
+                        <img src="{{ $promo->img_promo }}" alt="{{ $promo->nama_promo }}" class="img-fluid">
                     </p>
                     <h2 class="mb-3">{{ $promo->nama_promo }}</h2>
                     <p style="text-align: justify">{!! $promo->desc_promo !!}</p>

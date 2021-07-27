@@ -38,8 +38,8 @@
                                 @if ($galeri->count() > 0)
                                     @foreach ($galeri as $g)
                                         <div class="col-sm-2">
-                                            <a href="{{ asset( $g->nama_galeri) }}" data-toggle="lightbox" data-title="{{ $g->nama_lokasi }}" data-gallery="gallery">
-                                                <img src="{{ asset( $g->nama_galeri) }}" class="img-fluid mb-2" alt="{{ $g->nama_lokasi }}" />
+                                            <a href="{{ $g->nama_galeri }}" data-toggle="lightbox" data-title="{{ $g->nama_lokasi }}" data-gallery="gallery">
+                                                <img src="{{ $g->nama_galeri }}" class="img-fluid mb-2" alt="{{ $g->nama_lokasi }}" />
                                             </a>
                                         </div>
                                     @endforeach
@@ -69,7 +69,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="image">Tambahkan Gambar</label>
-                                <input type="file" class="form-control" id="image" name="image">
+                                <input type="text" class="form-control" id="image" name="image" placeholder="Masukkan Link Gambar">
                                 <input type="hidden" name="id_lokasi" value="{{ $lokasi->id_lokasi }}">
                             </div>
                             <div class="form-group">

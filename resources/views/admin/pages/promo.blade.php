@@ -58,7 +58,7 @@
                                                 <td>{{ $i++ }}</td>
                                                 <td>{{ $p->nama_promo }}</td>
                                                 <td>{{ $p->desc_promo }}</td>
-                                                <td><img src="{{ asset($p->img_promo) }}" class="img-fluid mb-2" alt="{{ $p->nama_promo }}" style="width: 150px"></td>
+                                                <td><img src="{{ $p->img_promo }}" class="img-fluid mb-2" alt="{{ $p->nama_promo }}" style="width: 150px"></td>
                                                 <td>
                                                     <div class="btn-group">
                                                         <a href="{{ route('admin.promo.edit', ['id' => $p->id_promo]) }}" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>

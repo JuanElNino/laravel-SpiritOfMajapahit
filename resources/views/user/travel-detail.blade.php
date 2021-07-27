@@ -11,13 +11,27 @@
                 <div id="carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                          <img src="{{ asset($tampil->nama_galeri) }}" class="d-block w-100" alt="First Slide">
+                            @if ( !$tampil == null )        
+                                @if( $tampil->nama_galeri == null)
+                                    <img src="https://hesolutions.com.pk/wp-content/uploads/2019/01/picture-not-available.jpg" class="d-block w-100" alt="First Slide">
+                                @else
+                                    <img src="{{ $tampil->nama_galeri }}" class="d-block w-100" alt="First Slide">
+                                @endif
+                            @else
+                                <img src="https://hesolutions.com.pk/wp-content/uploads/2019/01/picture-not-available.jpg" class="d-block w-100" alt="First Slide">
+                            @endif                          
                         </div>
-                        @foreach ($galeri as $g)
+                        @if ($galeri->count() > 0)     
+                            @foreach ($galeri as $g)
+                                <div class="carousel-item">
+                                    <img src="{{ $g->nama_galeri }}" class="d-block w-100" alt="First Slide">
+                                </div>
+                            @endforeach
+                        @else
                             <div class="carousel-item">
-                                <img src="{{ asset($g->nama_galeri) }}" class="d-block w-100" alt="First Slide">
+                                <img src="https://hesolutions.com.pk/wp-content/uploads/2019/01/picture-not-available.jpg" class="d-block w-100" alt="First Slide">
                             </div>
-                        @endforeach
+                        @endif
                     </div>
                     <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
                         <span class="carousel-control-custom-icon" aria-hidden="true">
@@ -40,10 +54,14 @@
                                 $average = $ulasan->avg('rating');
                             @endphp
                             Rating Lokasi :
-                            @for ($i = 0; $i < $average; $i++)
-                                <i class="fa fa-star"></i>
-                            @endfor
+                            @if ($ulasan->count() == 0)
+                                Belum ada rating
+                            @else
+                                @for ($i = 0; $i < $average; $i++)
+                                    <i class="fa fa-star"></i>
+                                 @endfor
                             ({{ $average }}/5)
+                            @endif
                         </span>
                     </div>
                 </div>
@@ -119,7 +137,7 @@
                     @guest
                         <h2><a href="{{ route('login') }}" class="btn btn-success btn-block">Tambah Ulasan</a></h2>
                     @else
-                        <h2><a href="{{ route('ulasan', ['id' => $wisata->id_lokasi]) }}" class="btn btn-success btn-block">Tambah Ulasan</a></h2>
+                        <h2><a href="{{ route('ulasan', ['id' => $travel->id_lokasi]) }}" class="btn btn-success btn-block">Tambah Ulasan</a></h2>
                     @endguest
                 </div>
             </div>

@@ -50,7 +50,7 @@
                                         @foreach ($galeri as $g)
                                             <tr>
                                                 <td>{{ $i++ }}</td>
-                                                <td><img src="{{ asset($g->nama_galeri) }}" class="img-fluid mb-2" alt="{{ $g->nama_lokasi }}" style="width: 150px"></td>
+                                                <td><img src="{{ $g->nama_galeri }}" class="img-fluid mb-2" alt="{{ $g->nama_lokasi }}" style="width: 150px"></td>
                                                 @if ($g->is_show == 'yes')
                                                     <td>Ya</td>
                                                 @elseif($g->is_show == 'no')

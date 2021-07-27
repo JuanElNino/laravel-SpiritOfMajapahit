@@ -15,29 +15,25 @@ class ClientController extends Controller
     public function indexWelcome()
     {
         $galeri = DB::table('galeri')
-            ->join('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
-            ->select('galeri.*', 'lokasi.nama_lokasi')
-            ->where('galeri.is_show', 'yes')
+            ->rightJoin('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
             ->get();
-        return view('welcome', compact('galeri'));
+        $promo = Promo::orderByDesc('id_promo')->first();
+        return view('welcome', compact('galeri', 'promo'));
     }
 
     public function indexHome()
     {
         $galeri = DB::table('galeri')
-            ->join('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
-            ->select('galeri.*', 'lokasi.nama_lokasi')
-            ->where('galeri.is_show', 'yes')
+            ->rightJoin('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
             ->get();
-        return view('user.home', compact('galeri'));
+        $promo = Promo::orderByDesc('id_promo')->first();
+        return view('user.home', compact('galeri', 'promo'));
     }
 
     public function indexWisata()
     {
         $galeri = DB::table('galeri')
-            ->join('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
-            ->select('galeri.*', 'lokasi.nama_lokasi')
-            ->where('galeri.is_show', 'yes')
+            ->rightJoin('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
             ->where('lokasi.jenis_lokasi', 'wisata')
             ->get();
         return view('user.wisata', compact('galeri'));
@@ -46,9 +42,7 @@ class ClientController extends Controller
     public function indexHotel()
     {
         $galeri = DB::table('galeri')
-            ->join('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
-            ->select('galeri.*', 'lokasi.nama_lokasi')
-            ->where('galeri.is_show', 'yes')
+            ->rightJoin('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
             ->where('lokasi.jenis_lokasi', 'hotel')
             ->get();
         return view('user.hotel', compact('galeri'));
@@ -57,9 +51,7 @@ class ClientController extends Controller
     public function indexTravel()
     {
         $galeri = DB::table('galeri')
-            ->join('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
-            ->select('galeri.*', 'lokasi.nama_lokasi')
-            ->where('galeri.is_show', 'yes')
+            ->rightJoin('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
             ->where('lokasi.jenis_lokasi', 'travel')
             ->get();
         return view('user.travel', compact('galeri'));
@@ -68,9 +60,7 @@ class ClientController extends Controller
     public function indexToko()
     {
         $galeri = DB::table('galeri')
-            ->join('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
-            ->select('galeri.*', 'lokasi.nama_lokasi')
-            ->where('galeri.is_show', 'yes')
+            ->rightJoin('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
             ->where('lokasi.jenis_lokasi', 'toko')
             ->get();
         return view('user.toko', compact('galeri'));
@@ -91,8 +81,7 @@ class ClientController extends Controller
                     ->where('is_show', 'no')
                     ->get();
         $tampil = DB::table('galeri')
-                    ->join('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
-                    ->select('galeri.*', 'lokasi.nama_lokasi')
+                    ->rightJoin('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
                     ->where('galeri.is_show', 'yes')
                     ->where('galeri.id_lokasi', $id)
                     ->first();
@@ -112,8 +101,7 @@ class ClientController extends Controller
                     ->where('is_show', 'no')
                     ->get();
         $tampil = DB::table('galeri')
-                    ->join('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
-                    ->select('galeri.*', 'lokasi.nama_lokasi')
+                    ->rightJoin('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
                     ->where('galeri.is_show', 'yes')
                     ->where('galeri.id_lokasi', $id)
                     ->first();
@@ -133,8 +121,7 @@ class ClientController extends Controller
                     ->where('is_show', 'no')
                     ->get();
         $tampil = DB::table('galeri')
-                    ->join('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
-                    ->select('galeri.*', 'lokasi.nama_lokasi')
+                    ->rightJoin('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
                     ->where('galeri.is_show', 'yes')
                     ->where('galeri.id_lokasi', $id)
                     ->first();
@@ -154,8 +141,7 @@ class ClientController extends Controller
                     ->where('is_show', 'no')
                     ->get();
         $tampil = DB::table('galeri')
-                    ->join('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
-                    ->select('galeri.*', 'lokasi.nama_lokasi')
+                    ->rightJoin('lokasi', 'galeri.id_lokasi', '=', 'lokasi.id_lokasi')
                     ->where('galeri.is_show', 'yes')
                     ->where('galeri.id_lokasi', $id)
                     ->first();

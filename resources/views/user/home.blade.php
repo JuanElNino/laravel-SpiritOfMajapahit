@@ -67,7 +67,8 @@
                         <div class="text mt-3">
                             <div class="meta mb-2 text-center">
                                 <div>
-                                    <h3><a href="#" style="color: #ff8811;"><b>Memakai Masker</b></a><h3>
+                                    <h3><a href="#" style="color: #ff8811;"><b>Memakai Masker</b></a>
+                                        <h3>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +83,8 @@
                         <div class="text mt-3">
                             <div class="meta mb-2 text-center">
                                 <div>
-                                    <h3><a href="#" style="color: #ff8811;"><b>Mencuci Tangan</b></a><h3>
+                                    <h3><a href="#" style="color: #ff8811;"><b>Mencuci Tangan</b></a>
+                                        <h3>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +99,8 @@
                         <div class="text mt-3">
                             <div class="meta mb-2 text-center">
                                 <div>
-                                    <h3><a href="#" style="color: #ff8811;"><b>Menjaga Jarak</b></a><h3>
+                                    <h3><a href="#" style="color: #ff8811;"><b>Menjaga Jarak</b></a>
+                                        <h3>
                                 </div>
                             </div>
                         </div>
@@ -118,26 +121,91 @@
             <div class="row d-flex justify-content-center">
                 @if ($galeri->count() > 0)
                     @foreach ($galeri as $g)
-                        <div class="col-md-4 ftco-animate">
-                            <div class="blog-entry align-self-stretch">
-                                <div class="img text-center">
-                                    <img src="{{ asset($g->nama_galeri) }}" style="border-radius:5%;"
-                                        alt="/" height="200" width="300">
+                        @if ($g->is_show == 'yes')
+                            <div class="col-md-4 ftco-animate">
+                                <div class="blog-entry align-self-stretch">
+                                    <div class="img text-center">
+                                        <img src="{{ $g->nama_galeri }}" style="border-radius:5%;" alt="/" height="200"
+                                            width="300">
+                                    </div>
+                                    <div class="text mt-3">
+                                        <h3 class="heading text-center"><a href="#">{{ $g->nama_lokasi }}</a></h3>
+                                    </div>
+                                    @if ($g->jenis_lokasi == 'Wisata')
+                                        <p class="text-center"><a
+                                                href="{{ route('detail.wisata', ['id' => $g->id_lokasi]) }}"
+                                                class="btn btn-primary">Lihat Selengkapnya</a>
+                                    @elseif($g->jenis_lokasi == 'Travel')
+                                        <p class="text-center"><a
+                                                href="{{ route('detail.travel', ['id' => $g->id_lokasi]) }}"
+                                                class="btn btn-primary">Lihat Selengkapnya</a>
+                                    @elseif($g->jenis_lokasi == 'Toko')
+                                        <p class="text-center"><a
+                                                href="{{ route('detail.toko', ['id' => $g->id_lokasi]) }}"
+                                                class="btn btn-primary">Lihat Selengkapnya</a>
+                                    @else
+                                        <p class="text-center"><a
+                                                href="{{ route('detail.hotel', ['id' => $g->id_lokasi]) }}"
+                                                class="btn btn-primary">Lihat Selengkapnya</a>
+                                    @endif
                                 </div>
-                                <div class="text mt-3">
-                                    <h3 class="heading text-center"><a href="#">{{ $g->nama_lokasi }}</a></h3>
-                                </div>
-                                <p class="text-center"><a href="{{ route('detail.wisata', ['id' => $g->id_lokasi]) }}"
-                                        class="btn btn-primary">Lihat Selengkapnya</a>
                             </div>
-                        </div>
+                        @elseif($g->is_show == null)
+                            <div class="col-md-4 ftco-animate">
+                                <div class="blog-entry align-self-stretch">
+                                    <div class="img text-center">
+                                        <img src="https://hesolutions.com.pk/wp-content/uploads/2019/01/picture-not-available.jpg"
+                                            style="border-radius:5%;" alt="/" height="200" width="300">
+                                    </div>
+                                    <div class="text mt-3">
+                                        <h3 class="heading text-center"><a href="#">{{ $g->nama_lokasi }}</a></h3>
+                                    </div>
+                                    @if ($g->jenis_lokasi == 'Wisata')
+                                        <p class="text-center"><a
+                                                href="{{ route('detail.wisata', ['id' => $g->id_lokasi]) }}"
+                                                class="btn btn-primary">Lihat Selengkapnya</a>
+                                    @elseif($g->jenis_lokasi == 'Travel')
+                                        <p class="text-center"><a
+                                                href="{{ route('detail.travel', ['id' => $g->id_lokasi]) }}"
+                                                class="btn btn-primary">Lihat Selengkapnya</a>
+                                    @elseif($g->jenis_lokasi == 'Toko')
+                                        <p class="text-center"><a
+                                                href="{{ route('detail.toko', ['id' => $g->id_lokasi]) }}"
+                                                class="btn btn-primary">Lihat Selengkapnya</a>
+                                    @else
+                                        <p class="text-center"><a
+                                                href="{{ route('detail.hotel', ['id' => $g->id_lokasi]) }}"
+                                                class="btn btn-primary">Lihat Selengkapnya</a>
+                                    @endif
+                                </div>
+                            </div>
+                        @endif
                     @endforeach
                 @else
                     <div class="text mt-3">
-                        <h3 class="heading text-center" style="color: #ff8811;"><a href="#">Belum ada data</a></h3>
+                        <h3 class="heading text-center"><a href="#">Belum ada data</a></h3>
                     </div>
                 @endif
             </div>
         </div>
     </section>
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><b>Selamat datang di Spirit Of Majapahit</b></h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>                    
+                </div>
+                <div class="modal-body">
+                    <h4>Promo hari ini</h4>
+                    <p>{{ $promo->nama_promo }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Tutup</button>
+                </div>
+            </div>    
+        </div>
+    </div>
 @endsection

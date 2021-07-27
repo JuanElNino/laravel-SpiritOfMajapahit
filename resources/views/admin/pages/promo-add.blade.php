@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Gambar Promo</label>
-                                    <input type="file" class="form-control" id="image" name="image">
+                                    <input type="text" class="form-control" id="image" name="image" placeholder="Masukkan Link Gambar">
                                 </div>
                             </div>
                             <!-- /.card-body -->
